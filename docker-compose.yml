@@ -69,6 +69,7 @@ services:
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
+      - ./cli_shared:/tmp
       - ./wp_data:/var/www/html:rw
       - ./bin/install-wp.sh:/usr/local/bin/install-wp:ro
     networks:
