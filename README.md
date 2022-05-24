@@ -112,7 +112,7 @@ To get your WordPress installation running follow these simple steps.
 
 ### Install
 
-1. Modify passwords and variables inside ```.env``` file as you wish
+1. Copy .env.template to .env and modify passwords and variables inside ```.env``` file as you wish
 2. Run shell command
    ```sh
    sh wp-install.sh

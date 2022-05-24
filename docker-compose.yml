@@ -49,7 +49,7 @@ services:
       WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX}
       WORDPRESS_DEBUG: ${WORDPRESS_DEBUG:-false}
     volumes:
-      - wp_data:/var/www/html:rw
+      - ./wp_data:/var/www/html:rw
       - ./configuration/apache2.conf:/etc/apache2/apache2.conf:ro
     networks:
       - wordpress-network
@@ -69,14 +69,13 @@ services:
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - wp_data:/var/www/html:rw
+      - ./wp_data:/var/www/html:rw
       - ./bin/install-wp.sh:/usr/local/bin/install-wp:ro
     networks:
       - wordpress-network
 
 volumes:
   db_data:
-  wp_data:
 
 networks:
   wordpress-network:

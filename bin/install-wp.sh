@@ -3,7 +3,7 @@
 # Install WordPress.
 wp core install \
   --path="/var/www/html" \
-  --url="http://localhost:${WORDPRESS_PORT}" \
+  --url="http://${WORDPRESS_HOST}:${WORDPRESS_PORT}" \
   --title="${WORDPRESS_TITLE}" \
   --admin_user="${WORDPRESS_ADMIN_USER}" \
   --admin_password="${WORDPRESS_ADMIN_PASSWORD}" \
@@ -15,9 +15,6 @@ wp option update \
   --skip-themes \
   --skip-plugins
 
-# Theme installation
-wp theme delete --all --force
-wp theme install "${WORDPRESS_THEME_TO_INSTALL}" --activate
 
 # Plugin installation
 wp plugin uninstall --all
@@ -30,7 +27,7 @@ echo "== User List =="
 wp user list
 echo ""
 
-# Show installed plugin
+# Show installed themes
 echo "== Theme List =="
 wp theme list
 echo ""
